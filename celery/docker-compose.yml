@@ -1,0 +1,57 @@
+version: "3.7"
+
+services:
+  flask_app:
+    container_name: flask_app
+    build: ./flask_app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+    volumes:
+      - ./flask_app:/app
+  
+  exporter:
+    container_name: exporter_2
+    build: ./celery_exporter
+    ports:
+      - "5530:5530"
+    depends_on:
+      - redis
+
+    volumes:
+      - ./celery_exporter:/app
+
+  worker:
+    build:
+      context: ./flask_app
+    hostname: worker
+    entrypoint: celery
+    command: -A app.celery worker --loglevel=info --concurrency=10
+    volumes:
+      - ./flask_app:/app
+    depends_on:
+      - redis
+
+  flower:  
+    image: mher/flower
+    command: celery --broker=redis://redis:6379/0 flower --address=0.0.0.0 --port=5555
+    ports:  
+      - '5555:5555'
+    depends_on:
+      - redis
+
+  celery-beat:
+    build: ./flask_app
+    command: celery -A app.celery beat --loglevel=info
+    volumes:
+      - ./flask_app:/app
+    environment:
+      - DEBUG=1
+    depends_on:
+      - redis
+  
+  redis:
+    image: 'redis:4-alpine'
+    ports:
+      - '6379:6379'

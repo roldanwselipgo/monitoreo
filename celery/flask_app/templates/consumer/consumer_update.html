@@ -1,0 +1,8 @@
+{% extends 'consumer/base.html' %} {% block content %}
+<form action=" {{ url_for('update') }} " method="post">
+
+    Hora de ejecucion {{ form.nombre(class="form-control") }} Dias de ejecucion {{ form.marca(class="form-control") }} {{ form.marca(class="form-control") }} Veces por dia {{ form.precio(class="form-control") }}
+
+    <button class="btn btn-primary mt-3" type="submit">Actualizar</button>
+</form>
+<br> {% endblock %}

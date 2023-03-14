@@ -1,0 +1,15 @@
+Flask
+celery[redis]
+mysql-connector
+pandas
+requests
+zeep
+Pillow
+icmplib
+flower
+eventlet
+pybloom-live
+flask_wtf
+docker
+python-nmap
+commands

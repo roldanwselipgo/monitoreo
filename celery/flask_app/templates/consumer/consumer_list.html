@@ -1,0 +1,81 @@
+{% extends 'consumer/base.html' %} {% block content %}
+
+<div>
+
+    <section class="mt-3">
+        <div class="container">
+            <h4 class="mb-3">Procedimientos </h4>
+
+            <a class="btn btn-outline-success px-3 me-2" href="{{ url_for('sucursal') }}">Actualizar una sucural</a>
+            
+            <a class="btn btn-outline-success px-3 me-2" href="{{ url_for('update_sucursal_cameras_status') }}">Actualizar status sucursales</a>
+        
+        
+            <a class="btn btn-outline-success px-3 me-2" href="{{ url_for('update_sucursal_cameras') }}"> Actualizar videos perdidos todas las sucurales</a> 
+           
+           
+        </div>
+        
+    </section>
+   
+    
+</div>
+
+<!-- 
+    <section class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card ">
+                        <div class="card-body">
+                        <h5 class="card-title">Celery-redis</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Status: </li>
+                        <li class="list-group-item">Up: </li>
+                        </ul>
+                        <div class="card-body">
+                        <a href="#" class="card-link">Enable</a>
+                        <a href="#" class="card-link">Restart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card ">
+                        <div class="card-body">
+                        <h5 class="card-title">Flower</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Status: </li>
+                        <li class="list-group-item">Up: </li>
+                        </ul>
+                        <div class="card-body">
+                        <a href="#" class="card-link">Enable</a>
+                        <a href="#" class="card-link">Restart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card " >
+                        <div class="card-body">
+                        <h5 class="card-title">Beat</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Status: </li>
+                        <li class="list-group-item">Up: </li>
+                        </ul>
+                        <div class="card-body">
+                        <a href="#" class="card-link">Enable</a>
+                        <a href="#" class="card-link">Restart</a>
+                        <a href="{{ url_for('update_sucursal_cameras') }}" class="card-link">Modify</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+       
+    </section> -->
+    
+{% endblock %}
